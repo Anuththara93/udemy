@@ -9,6 +9,11 @@ class Signup extends Controller{
         // $db = new Database();
         // $db->create_tables();
         
+        $user = new User();
+        $result = $user->validate($_POST);
+        
+        var_dump($result);
+        show($user->errors);
         show($_POST);
         $data['title'] = "Signup";
 

@@ -12,7 +12,7 @@ class Signup extends Controller{
         $user = new User();
         $result = $user->validate($_POST);
         
-        var_dump($result);
+        $query = "insert into users () values ()";
         show($user->errors);
         show($_POST);
         $data['title'] = "Signup";

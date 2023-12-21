@@ -27,9 +27,9 @@ class User{
             $this->errors['password'] = "A password is required";
         }
 
-        if($data['password'] !== $data['retype_password']){
+        if (isset($data['password'], $data['retype_password']) && $data['password'] !== $data['retype_password']) {
             $this->errors['password'] = "Passwords do not match";
-        }
+        }        
 
         if(empty($data['terms'])){
             $this->errors['terms'] = "Please accept the terms and conditions";

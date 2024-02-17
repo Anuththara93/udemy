@@ -9,10 +9,17 @@ class Signup extends Controller{
         $data['errors'] = [];
 
         $user = new User();
-        if($result = $user->validate($_POST)){
 
-            $_POST['date'] = date("Y-m-d H:i:s");
-            $user->insert($_POST);
+        if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+            if($result = $user->validate($_POST)){
+
+                $_POST['date'] = date("Y-m-d H:i:s");
+                $user->insert($_POST);
+
+                message("Your profile was successfully created. Please Login");
+                redirect('login');
+            }
         }
 
         $data['errors'] = $user->errors;

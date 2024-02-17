@@ -69,7 +69,7 @@
                       <label for="yourName" class="form-label">First Name</label>
                       <input value="<?= set_value('firstname')?>" type="text" name="firstname" class="form-control" id="yourName" required1>
                       <div class="invalid-feedback">Please, enter your first name!</div>
-                    </div>
+                      </div>
 
                     <div class="col-6">
                       <label for="yourName2" class="form-label">Last Name</label>
@@ -79,8 +79,13 @@
 
                     <div class="col-12">
                       <label for="yourEmail" class="form-label">Your Email</label>
-                      <input value="<?= set_value('email')?>" type="email" name="email" class="form-control" id="yourEmail" required1>
+                      <input value="<?= set_value('email')?>" type="email" name="email" class="form-control <?=!empty($errors['email']) ? 'border-danger':''?>" id="yourEmail" required1>
                       <div class="invalid-feedback">Please enter a valid Email adddress!</div>
+
+                      <?php if(!empty($errors['email'])):?>
+                        <small class="text-danger"><?=$errors['email']?></small>
+                      <?php endif;?>
+
                     </div>
 
                     <!-- <div class="col-12">

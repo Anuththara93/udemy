@@ -35,7 +35,6 @@ class User{
             $this->errors['terms'] = "Please accept the terms and conditions";
         }
 
-        
         if(empty($this->errors)){
             return true;
         }

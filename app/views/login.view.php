@@ -71,7 +71,7 @@
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                         <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Please enter your username.</div>
+                        <div class="invalid-feedback">Please enter your username!</div>
                       </div>
                     </div>
 

@@ -38,7 +38,6 @@
             <li><a href="<?=ROOT?>/login">Login</a></li>
             <li><a href="<?=ROOT?>/signup">SignUp</a></li>
           <?php else:?>
-
             <li class="dropdown"><a href="#"><span>Hi! <?=Auth::getFirstname()?></span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
               <ul>
                 <li><a href="<?=ROOT?>/admin">Dhashboard</a></li>

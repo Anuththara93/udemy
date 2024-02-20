@@ -19,10 +19,31 @@
 
   <li class="nav-item">
     <a class="nav-link " href="<?=ROOT?>/admin/courses">
-      <i class="bi bi-camera-reels"></i>
-      <span>Courses</span>
+      <i class="bi bi-mortarboard"></i>
+      <span>My Courses</span>
     </a>
-  </li><!-- End Courses Nav -->
+  </li><!-- End My Courses Nav -->
+
+  <li class="nav-item">
+    <a class="nav-link " href="<?=ROOT?>/admin/lessons">
+      <i class="bi bi-person-video3"></i>
+      <span>Enrolled Courses</span>
+    </a>
+  </li><!-- End Enrolled Courses Nav -->
+
+  <li class="nav-item">
+    <a class="nav-link " href="<?=ROOT?>/admin/history">
+      <i class="bi bi-clock-history"></i>
+      <span>Watch History</span>
+    </a>
+  </li><!-- End Watch History Nav -->
+
+  <li class="nav-item">
+    <a class="nav-link " href="<?=ROOT?>/admin/sales">
+      <i class="bi bi-cash-coin"></i>
+      <span>Sales</span>
+    </a>
+  </li><!-- End Sales Nav -->
 
   <li class="nav-heading">Go to</li>
 

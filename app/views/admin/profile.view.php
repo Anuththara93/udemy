@@ -22,7 +22,7 @@
       <div class="card">
         <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
-          <img src="<?=ROOT?>/niceadmin/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+          <img src="<?=ROOT?>/<?=$row->image?>" alt="Profile" style="width:200px; max-width:200px; height:200px; object-fit:cover;" class="rounded-circle">
           <h2><?=esc($row->firstname)?> <?=esc($row->lastname)?></h2>
           <h3><?=esc($row->role)?></h3>
           <div class="social-links mt-2">
@@ -119,7 +119,7 @@
                   <div class="col-md-8 col-lg-9">
 
                   <div class="d-flex">
-                    <img class="js-image-preview" src="<?=ROOT?>/niceadmin/assets/img/profile-img.jpg" alt="Profile" style="width:200px; max-width:200px; height:200px; object-fit:cover;">
+                    <img class="js-image-preview" src="<?=ROOT?>/<?=$row->image?>" alt="Profile" style="width:200px; max-width:200px; height:200px; object-fit:cover;">
                     <div class="js-filename m-2">Selected File: None</div>
                   </div>  
 
@@ -199,29 +199,45 @@
                 <div class="row mb-3">
                   <label for="Twitter" class="col-md-4 col-lg-3 col-form-label">Twitter Profile</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="twitter" type="text" class="form-control" id="Twitter" value="https://twitter.com/#">
+                    <input name="twitter_link" type="text" class="form-control" id="Twitter" value="https://twitter.com/#">
                   </div>
+
+                  <?php if(!empty($errors['twitter_link'])):?>
+                    <small class="text-danger"><?=$errors['twitter_link']?></small>
+                  <?php endif;?>
                 </div>
 
                 <div class="row mb-3">
                   <label for="Facebook" class="col-md-4 col-lg-3 col-form-label">Facebook Profile</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="facebook" type="text" class="form-control" id="Facebook" value="https://facebook.com/#">
+                    <input name="facebook_link" type="text" class="form-control" id="Facebook" value="https://facebook.com/#">
                   </div>
+
+                  <?php if(!empty($errors['facebook_link'])):?>
+                    <small class="text-danger"><?=$errors['facebook_link']?></small>
+                  <?php endif;?>
                 </div>
 
                 <div class="row mb-3">
                   <label for="Instagram" class="col-md-4 col-lg-3 col-form-label">Instagram Profile</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="instagram" type="text" class="form-control" id="Instagram" value="https://instagram.com/#">
+                    <input name="instagram_link" type="text" class="form-control" id="Instagram" value="https://instagram.com/#">
                   </div>
+
+                  <?php if(!empty($errors['instagram_link'])):?>
+                    <small class="text-danger"><?=$errors['instagram_link']?></small>
+                  <?php endif;?>
                 </div>
 
                 <div class="row mb-3">
                   <label for="Linkedin" class="col-md-4 col-lg-3 col-form-label">Linkedin Profile</label>
                   <div class="col-md-8 col-lg-9">
-                    <input name="linkedin" type="text" class="form-control" id="Linkedin" value="https://linkedin.com/#">
+                    <input name="linkedin_link" type="text" class="form-control" id="Linkedin" value="https://linkedin.com/#">
                   </div>
+
+                  <?php if(!empty($errors['linkedin_link'])):?>
+                    <small class="text-danger"><?=$errors['linkedin_link']?></small>
+                  <?php endif;?>
                 </div>
 
                 <div class="text-center">

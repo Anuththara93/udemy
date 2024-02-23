@@ -38,35 +38,42 @@ class Admin extends Controller{
                 file_put_contents("uploads/index.php", "<?php //silence");
             }
 
-            $allowed = ['image/jpeg', 'image/png'];
+            if($user->edit_validate($data)){
 
-            if(!empty($_FILES['image']['name'])){
-                if($_FILES['image']['error'] == 0){
+                $allowed = ['image/jpeg', 'image/png'];
 
-                    if(in_array($_FILES['image']['type'], $allowed)){
-                        // everything is good
-                        $destination = $folder.time().$_FILES['image']['name'];
-                        move_uploaded_file($_FILES['image']['tmp_name'], $destination);
+                if(!empty($_FILES['image']['name'])){
+                    if($_FILES['image']['error'] == 0){
 
-                        $_POST['image'] = $destination;
+                        if(in_array($_FILES['image']['type'], $allowed)){
+                            // everything is good
+                            $destination = $folder.time().$_FILES['image']['name'];
+                            move_uploaded_file($_FILES['image']['tmp_name'], $destination);
+
+                            $_POST['image'] = $destination;
+                            if(file_exists($data['row']->image)){
+                                unlink($data['row']->image);
+                            }
+                        }
+
+                        else{
+                            $user->errors['image'] = "This file type is not allowed";
+                        }
                     }
 
                     else{
-                        $user->errors['image'] = "This file type is not allowed";
+                        $user->errors['image'] = "Could not upload the image";
                     }
                 }
 
-                else{
-                    $user->errors['image'] = "Could not upload the image";
-                }
+                $user->update($id, $_POST);
+
+                redirect('admin/profile/' .$id);
             }
-
-            $user->update($id, $_POST);
-
-            redirect('admin/profile/' .$id);
         }
 
         $data['title'] = "Profile";
+        $data['errors'] = $user->errors;
 
         $this->view('admin/profile', $data);
     }
